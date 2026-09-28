@@ -60,7 +60,7 @@ export const QuickBookingWidget: React.FC<QuickBookingWidgetProps> = ({
   return (
     <div className={`w-full ${className}`}>
       {/* Desktop Horizontal Bar (Visible on md and larger) */}
-      <div className="hidden md:block bg-white rounded-xl border border-[#e8e4de] shadow-xl p-3.5 lg:p-4">
+      <div className="hidden md:block bg-white border border-[#e8e4de] shadow-xl p-3.5 lg:p-4">
         <form onSubmit={handleSearch} className="flex flex-col md:flex-row items-center gap-3 sm:gap-4 w-full">
           {/* Check in */}
           <div className="flex-1 w-full border-b md:border-b-0 md:border-r border-[#e8e4de] pb-2 md:pb-0 md:pr-4">
@@ -142,7 +142,7 @@ export const QuickBookingWidget: React.FC<QuickBookingWidgetProps> = ({
           <div className="w-full md:w-auto shrink-0">
             <button
               type="submit"
-              className="w-full md:w-auto bg-[#b87352] hover:bg-[#a25f3f] text-white py-3.5 px-6 rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
+              className="w-full md:w-auto bg-[#b87352] hover:bg-[#a25f3f] text-white py-3.5 px-6 text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm whitespace-nowrap"
             >
               <Search className="w-4 h-4" />
               <span>check availability</span>

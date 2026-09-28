@@ -63,16 +63,16 @@ export default async function HomePage() {
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/rooms"
-              className="bg-[#b87352] hover:bg-[#a25f3f] text-white px-6 py-3.5 rounded-lg text-sm font-medium transition-all shadow-md inline-flex items-center gap-2"
+              className="bg-[#b87352] hover:bg-[#a25f3f] text-white px-6 py-3.5 text-sm font-medium transition-all shadow-md inline-flex items-center gap-2"
             >
-              <span>explore luxury cabanas</span>
+              <span>Explore luxury cabanas</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/gallery"
-              className="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border border-white/30 px-6 py-3.5 rounded-lg text-sm font-medium transition-all"
+              className="bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border border-white/30 px-6 py-3.5 text-sm font-medium transition-all"
             >
-              view photo gallery
+              View photo gallery
             </Link>
           </div>
         </div>
@@ -129,9 +129,9 @@ export default async function HomePage() {
             {MOCK_RESORT_INFO.amenities.map((item) => (
               <div
                 key={item.title}
-                className="bg-[#2a3c34] p-6 rounded-xl border border-white/10 space-y-4 hover:border-[#d9a05b]/50 transition-colors"
+                className="bg-[#2a3c34] p-6 border border-white/10 space-y-4 hover:border-[#d9a05b]/50 transition-colors"
               >
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 bg-white/10 flex items-center justify-center">
                   {iconMap[item.icon] || <Sparkles className="w-6 h-6 text-[#d9a05b]" />}
                 </div>
                 <h3 className="font-serif text-xl font-medium text-white">{item.title}</h3>
@@ -143,7 +143,7 @@ export default async function HomePage() {
           <div className="text-center pt-4">
             <Link
               href="/amenities"
-              className="inline-flex items-center gap-2 bg-[#b87352] hover:bg-[#a25f3f] text-white px-6 py-3 rounded-lg text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 bg-[#b87352] hover:bg-[#a25f3f] text-white px-6 py-3 text-sm font-medium transition-colors"
             >
               <span>discover all resort facilities</span>
               <ArrowRight className="w-4 h-4" />
@@ -167,7 +167,7 @@ export default async function HomePage() {
           {MOCK_RESORT_INFO.testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-xl border border-[#e8e4de] flex flex-col justify-between space-y-4 shadow-2xs"
+              className="bg-white p-6 border border-[#e8e4de] flex flex-col justify-between space-y-4 shadow-2xs"
             >
               <div className="space-y-3">
                 <div className="flex items-center gap-1 text-[#d9a05b]">
@@ -190,7 +190,7 @@ export default async function HomePage() {
 
       {/* Location Teaser Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl border border-[#e8e4de] overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xs">
+        <div className="bg-white border border-[#e8e4de] overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-xs">
           <div className="lg:col-span-5 p-8 lg:p-12 space-y-6 flex flex-col justify-between">
             <div className="space-y-4">
               <span className="text-xs uppercase tracking-widest text-[#b87352] font-semibold">
@@ -217,7 +217,7 @@ export default async function HomePage() {
             <div className="pt-4">
               <Link
                 href="/location"
-                className="inline-flex items-center gap-2 bg-[#faf8f5] hover:bg-[#b87352] text-[#1e293b] hover:text-white border border-[#e8e4de] px-5 py-2.5 rounded-lg text-xs font-medium transition-all"
+                className="inline-flex items-center gap-2 bg-[#faf8f5] hover:bg-[#b87352] text-[#1e293b] hover:text-white border border-[#e8e4de] px-5 py-2.5 text-xs font-medium transition-all"
               >
                 <span>view interactive arrival guide</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -232,8 +232,8 @@ export default async function HomePage() {
               alt="Map view Tantor Resort Habarana"
               className="absolute inset-0 w-full h-full object-cover opacity-60"
             />
-            <div className="relative z-10 bg-white/95 backdrop-blur-md p-6 rounded-xl border border-[#e8e4de] shadow-md max-w-xs text-center space-y-3">
-              <div className="w-10 h-10 rounded-full bg-[#b87352] text-white flex items-center justify-center mx-auto">
+            <div className="relative z-10 bg-white/95 backdrop-blur-md p-6 border border-[#e8e4de] shadow-md max-w-xs text-center space-y-3">
+              <div className="w-10 h-10 bg-[#b87352] text-white flex items-center justify-center mx-auto">
                 <MapPin className="w-5 h-5" />
               </div>
               <h4 className="font-serif font-semibold text-[#1e293b]">Tantor Resort Habarana</h4>
@@ -242,7 +242,7 @@ export default async function HomePage() {
                 href={MOCK_RESORT_INFO.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-[#1f2d27] text-white text-xs px-4 py-2 rounded-lg hover:bg-[#b87352] transition-colors"
+                className="inline-block bg-[#1f2d27] text-white text-xs px-4 py-2 hover:bg-[#b87352] transition-colors"
               >
                 open in Google Maps
               </a>

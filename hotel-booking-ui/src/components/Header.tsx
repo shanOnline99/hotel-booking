@@ -23,21 +23,20 @@ export const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { href: '/rooms', label: 'rooms' },
-    { href: '/amenities', label: 'amenities' },
-    { href: '/gallery', label: 'gallery' },
-    { href: '/location', label: 'location' },
-    { href: '/about', label: 'about us' },
-    { href: '/contact', label: 'contact' },
+    { href: '/rooms', label: 'Rooms' },
+    { href: '/amenities', label: 'Amenities' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/location', label: 'Location' },
+    { href: '/about', label: 'About us' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-[#e8e4de] py-3.5'
-          : 'bg-white/80 backdrop-blur-sm border-b border-[#e8e4de]/60 py-4'
-      }`}
+      className={`sticky top-0 z-40 w-full transition-all duration-300 ${isScrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-xs border-b border-[#e8e4de] py-3.5'
+        : 'bg-white/80 backdrop-blur-sm border-b border-[#e8e4de]/60 py-4'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
@@ -46,7 +45,7 @@ export const Header: React.FC = () => {
             <img
               src="/photos/logo/logo.jpg"
               alt="Tantor Resort Logo"
-              className="w-10 h-10 rounded-full object-cover border border-[#e8e4de] group-hover:scale-105 transition-transform"
+              className="w-10 h-10 object-cover border border-[#e8e4de] header-logo group-hover:scale-105 transition-transform"
             />
             <div className="flex flex-col">
               <span className="font-serif text-xl sm:text-2xl tracking-tight text-[#1f2d27] font-semibold">
@@ -66,11 +65,10 @@ export const Header: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm tracking-wide transition-colors ${
-                    isActive
-                      ? 'text-[#b87352] font-semibold'
-                      : 'text-[#1e293b] hover:text-[#b87352]'
-                  }`}
+                  className={`text-sm tracking-wide transition-colors ${isActive
+                    ? 'text-[#b87352] font-semibold'
+                    : 'text-[#1e293b] hover:text-[#b87352]'
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -82,23 +80,23 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-3">
             <Link
               href="/my-booking"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#64748b] hover:text-[#1e293b] px-3 py-2 rounded-lg transition-colors border border-transparent hover:border-[#e8e4de]"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-[#64748b] hover:text-[#1e293b] px-3 py-2.5 transition-colors border border-transparent hover:border-[#e8e4de]"
             >
-              manage booking
+              Manage booking
             </Link>
 
             <Link
               href="/rooms"
-              className="inline-flex items-center gap-2 bg-[#b87352] hover:bg-[#a25f3f] text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-all shadow-xs"
+              className="inline-flex items-center gap-2 bg-[#b87352] hover:bg-[#a25f3f] text-white text-sm font-medium px-4 py-2.5 transition-all shadow-xs"
             >
               <Calendar className="w-4 h-4" />
-              <span>book now</span>
+              <span>Book now</span>
             </Link>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-[#1e293b] hover:bg-[#faf8f5] border border-[#e8e4de] transition-colors"
+              className="md:hidden p-2 text-[#1e293b] hover:bg-[#faf8f5] border border-[#e8e4de] transition-colors"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -118,11 +116,10 @@ export const Header: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-3 py-2.5 rounded-lg text-base ${
-                    isActive
-                      ? 'bg-[#faf8f5] text-[#b87352] font-semibold'
-                      : 'text-[#1e293b] hover:bg-[#faf8f5]'
-                  }`}
+                  className={`px-3 py-2.5 text-base ${isActive
+                    ? 'bg-[#faf8f5] text-[#b87352] font-semibold'
+                    : 'text-[#1e293b] hover:bg-[#faf8f5]'
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -131,7 +128,7 @@ export const Header: React.FC = () => {
             <Link
               href="/my-booking"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-3 py-2.5 rounded-lg text-base text-[#64748b] hover:bg-[#faf8f5]"
+              className="px-3 py-2.5 text-base text-[#64748b] hover:bg-[#faf8f5]"
             >
               manage reservation
             </Link>

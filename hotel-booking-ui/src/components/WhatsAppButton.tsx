@@ -71,7 +71,7 @@ export const WhatsAppButton: React.FC = () => {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {/* Floating Chat Modal */}
       {isOpen && (
-        <div className="mb-4 w-[90vw] sm:w-[380px] bg-white rounded-2xl shadow-xl border border-[#e8e4de] overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
+        <div className="whatsapp-modal mb-4 w-[90vw] sm:w-[380px] bg-white rounded-2xl shadow-xl border border-[#e8e4de] overflow-hidden animate-in fade-in slide-in-from-bottom-5 duration-200">
           {/* Header */}
           <div className="bg-[#1f2d27] text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -170,7 +170,7 @@ export const WhatsAppButton: React.FC = () => {
       {/* Floating Action Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative group bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center justify-center"
+        className="whatsapp-btn relative group bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center justify-center"
         aria-label="Contact via WhatsApp"
       >
         <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">

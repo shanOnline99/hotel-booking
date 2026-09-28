@@ -49,11 +49,11 @@ export default async function RoomDetailPage({
         {/* Title Header */}
         <div className="space-y-3">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="bg-[#b87352]/10 text-[#b87352] text-xs font-semibold px-3 py-1 rounded-full">
+            <span className="bg-[#b87352]/10 text-[#b87352] text-xs font-semibold px-3 py-1">
               {room.view}
             </span>
             {room.featured && (
-              <span className="bg-[#1f2d27] text-[#d9a05b] text-xs font-medium px-3 py-1 rounded-full">
+              <span className="bg-[#1f2d27] text-[#d9a05b] text-xs font-medium px-3 py-1">
                 featured villa
               </span>
             )}
@@ -75,7 +75,7 @@ export default async function RoomDetailPage({
           <div className="lg:col-span-8 space-y-10">
             {/* Quick Specs Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="bg-white p-4 rounded-xl border border-[#e8e4de] space-y-1">
+              <div className="bg-white p-4 border border-[#e8e4de] space-y-1">
                 <div className="flex items-center gap-2 text-[#b87352]">
                   <Users className="w-4 h-4" />
                   <span className="text-xs font-medium text-[#64748b]">occupancy</span>
@@ -83,7 +83,7 @@ export default async function RoomDetailPage({
                 <div className="text-base font-semibold text-[#1e293b]">up to {room.maxOccupancy} guests</div>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-[#e8e4de] space-y-1">
+              <div className="bg-white p-4 border border-[#e8e4de] space-y-1">
                 <div className="flex items-center gap-2 text-[#b87352]">
                   <Maximize2 className="w-4 h-4" />
                   <span className="text-xs font-medium text-[#64748b]">villa size</span>
@@ -91,7 +91,7 @@ export default async function RoomDetailPage({
                 <div className="text-base font-semibold text-[#1e293b]">{room.sizeSqm} m²</div>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-[#e8e4de] space-y-1">
+              <div className="bg-white p-4 border border-[#e8e4de] space-y-1">
                 <div className="flex items-center gap-2 text-[#b87352]">
                   <Bed className="w-4 h-4" />
                   <span className="text-xs font-medium text-[#64748b]">bed setup</span>
@@ -99,7 +99,7 @@ export default async function RoomDetailPage({
                 <div className="text-base font-semibold text-[#1e293b]">{room.bedType}</div>
               </div>
 
-              <div className="bg-white p-4 rounded-xl border border-[#e8e4de] space-y-1">
+              <div className="bg-white p-4 border border-[#e8e4de] space-y-1">
                 <div className="flex items-center gap-2 text-[#b87352]">
                   <Eye className="w-4 h-4" />
                   <span className="text-xs font-medium text-[#64748b]">scenic view</span>
@@ -109,7 +109,7 @@ export default async function RoomDetailPage({
             </div>
 
             {/* Room Narrative Description */}
-            <div className="bg-white p-8 rounded-xl border border-[#e8e4de] space-y-4">
+            <div className="bg-white p-8 border border-[#e8e4de] space-y-4">
               <h2 className="font-serif text-2xl font-normal text-[#1e293b]">
                 about this sanctuary
               </h2>
@@ -119,14 +119,14 @@ export default async function RoomDetailPage({
             </div>
 
             {/* Amenities Grid */}
-            <div className="bg-white p-8 rounded-xl border border-[#e8e4de] space-y-6">
+            <div className="bg-white p-8 border border-[#e8e4de] space-y-6">
               <h2 className="font-serif text-2xl font-normal text-[#1e293b]">
                 room amenities & features
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {room.amenities.map((amenity) => (
-                  <div key={amenity} className="flex items-center gap-3 p-3 bg-[#faf8f5] rounded-lg border border-[#e8e4de]">
-                    <div className="w-7 h-7 rounded-full bg-[#b87352]/10 text-[#b87352] flex items-center justify-center shrink-0">
+                  <div key={amenity} className="flex items-center gap-3 p-3 bg-[#faf8f5] border border-[#e8e4de]">
+                    <div className="w-7 h-7 bg-[#b87352]/10 text-[#b87352] flex items-center justify-center shrink-0">
                       <Check className="w-4 h-4" />
                     </div>
                     <span className="text-xs font-medium text-[#1e293b]">{amenity}</span>
@@ -136,7 +136,7 @@ export default async function RoomDetailPage({
             </div>
 
             {/* Resort Policies Teaser */}
-            <div className="bg-[#faf8f5] p-6 rounded-xl border border-[#e8e4de] space-y-3">
+            <div className="bg-[#faf8f5] p-6 border border-[#e8e4de] space-y-3">
               <h3 className="font-serif text-lg font-medium text-[#1e293b] flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-600" />
                 stay policies & perks
