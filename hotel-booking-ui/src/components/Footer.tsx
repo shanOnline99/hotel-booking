@@ -120,9 +120,15 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/60 gap-4">
           <p>© {new Date().getFullYear()} Tantor Resort. all rights reserved.</p>
           <div className="flex items-center gap-6">
-            <span className="hover:text-white cursor-pointer">privacy policy</span>
-            <span className="hover:text-white cursor-pointer">cancellation policy</span>
-            <span className="hover:text-white cursor-pointer">terms of stay</span>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              privacy policy
+            </Link>
+            <Link href="/cancellation-policy" className="hover:text-white transition-colors">
+              cancellation policy
+            </Link>
+            <Link href="/terms-of-stay" className="hover:text-white transition-colors">
+              terms of stay
+            </Link>
           </div>
         </div>
       </div>

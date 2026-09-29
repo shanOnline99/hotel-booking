@@ -34,10 +34,10 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ items }) => {
           <div
             key={mediaUrl}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${isActive
-                ? 'translate-x-0 opacity-100 scale-100 z-10'
-                : isPast
-                  ? '-translate-x-full opacity-0 scale-95 z-0'
-                  : 'translate-x-full opacity-0 scale-95 z-0'
+              ? 'translate-x-0 opacity-100 scale-100 z-10'
+              : isPast
+                ? '-translate-x-full opacity-0 scale-95 z-0'
+                : 'translate-x-full opacity-0 scale-95 z-0'
               }`}
           >
             {videoMedia ? (
