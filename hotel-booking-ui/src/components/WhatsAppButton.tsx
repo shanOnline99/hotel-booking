@@ -75,11 +75,11 @@ export const WhatsAppButton: React.FC = () => {
           {/* Header */}
           <div className="bg-[#1f2d27] text-white p-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="relative">
+              <div className="relative rounded-xl">
                 <img
                   src="/photos/logo/logo.jpg"
                   alt="Tantor Concierge Logo"
-                  className="w-10 h-10 rounded-full object-cover border border-white/20"
+                  className="w-10 h-10 object-cover border border-white/20"
                 />
                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#1f2d27] rounded-full"></span>
               </div>

@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
             <img
               src="/photos/logo/logo.jpg"
               alt="Tantor Resort Logo"
-              className="w-10 h-10 object-cover border border-[#e8e4de] header-logo group-hover:scale-105 transition-transform"
+              className="w-10 h-10 rounded-full object-cover border border-[#e8e4de] header-logo group-hover:scale-105 transition-transform"
             />
             <div className="flex flex-col">
               <span className="font-serif text-xl sm:text-2xl tracking-tight text-[#1f2d27] font-semibold">

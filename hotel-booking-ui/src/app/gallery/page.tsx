@@ -7,84 +7,89 @@ import { X } from 'lucide-react';
 interface GalleryPhoto {
   id: string;
   url: string;
-  colSpan: string;
+  spanClass: string;
 }
 
 const GALLERY_PHOTOS: GalleryPhoto[] = [
   {
     id: 'g1',
     url: '/photos/gallery/IMG_0054.JPG.jpeg',
-    colSpan: 'col-span-1 sm:col-span-2 row-span-2',
+    spanClass: 'col-span-1 sm:col-span-2 lg:col-span-2 row-span-2',
   },
   {
     id: 'g2',
     url: '/photos/gallery/IMG_0053.JPG.jpeg',
-    colSpan: 'col-span-1 sm:col-span-2 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g3',
     url: '/photos/gallery/IMG_0055.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-2',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-2',
   },
   {
     id: 'g4',
     url: '/photos/gallery/IMG_0056.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g5',
     url: '/photos/gallery/IMG_0057.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-2 lg:col-span-2 row-span-1',
   },
   {
     id: 'g6',
     url: '/photos/gallery/IMG_0058.JPG.jpeg',
-    colSpan: 'col-span-1 sm:col-span-2 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-2',
   },
   {
     id: 'g7',
     url: '/photos/gallery/IMG_0059.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-2',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g8',
     url: '/photos/gallery/IMG_0061.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g9',
     url: '/photos/gallery/IMG_0063.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g10',
     url: '/photos/gallery/IMG_0064.JPG.jpeg',
-    colSpan: 'col-span-1 sm:col-span-2 row-span-2',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g11',
     url: '/photos/gallery/IMG_0067.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-2',
   },
   {
     id: 'g12',
     url: '/photos/gallery/IMG_2172.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-2',
+    spanClass: 'col-span-1 sm:col-span-2 lg:col-span-2 row-span-2',
   },
   {
     id: 'g13',
     url: '/photos/gallery/IMG_3315.JPG.jpeg',
-    colSpan: 'col-span-1 sm:col-span-2 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g14',
     url: '/photos/gallery/IMG_3709.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-1 lg:col-span-1 row-span-1',
   },
   {
     id: 'g15',
     url: '/photos/gallery/IMG_3710.JPG.jpeg',
-    colSpan: 'col-span-1 row-span-1',
+    spanClass: 'col-span-1 sm:col-span-2 lg:col-span-2 row-span-1',
+  },
+  {
+    id: 'g16',
+    url: '/photos/hero/IMG_0046.JPG.jpg',
+    spanClass: 'col-span-1 sm:col-span-2 lg:col-span-2 row-span-1',
   },
 ];
 
@@ -101,13 +106,13 @@ export default function GalleryPage() {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        {/* Dynamic Collage Grid with sharp unrounded edges and distinct sizes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] sm:auto-rows-[260px] gap-4">
+        {/* Dynamic Collage Grid with varied sizes and zero gaps */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[220px] sm:auto-rows-[260px] gap-4 grid-flow-row-dense">
           {GALLERY_PHOTOS.map((photo) => (
             <div
               key={photo.id}
               onClick={() => setSelectedPhoto(photo)}
-              className={`group relative overflow-hidden bg-[#1f2d27] cursor-pointer border border-[#e8e4de] shadow-xs hover:shadow-xl transition-all duration-300 rounded-none ${photo.colSpan}`}
+              className={`group relative overflow-hidden bg-[#1f2d27] cursor-pointer border border-[#e8e4de] shadow-xs hover:shadow-xl transition-all duration-300 rounded-none ${photo.spanClass}`}
             >
               <img
                 src={photo.url}

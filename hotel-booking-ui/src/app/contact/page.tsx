@@ -28,9 +28,9 @@ export default function ContactPage() {
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* Contact Details Column */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 flex flex-col justify-between">
             <div className="space-y-2">
               <span className="text-xs uppercase tracking-widest text-[#b87352] font-semibold">
                 direct contact
@@ -40,7 +40,7 @@ export default function ContactPage() {
               </h2>
             </div>
 
-            <div className="space-y-4 text-xs text-[#1e293b]">
+            <div className="space-y-4 text-xs text-[#1e293b] flex-1 flex flex-col justify-between">
               <div className="bg-white p-5 rounded-xl border border-[#e8e4de] space-y-2">
                 <div className="flex items-center gap-2 font-semibold text-sm">
                   <MapPin className="w-4 h-4 text-[#b87352]" />
@@ -87,9 +87,9 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form Column */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-[#e8e4de] shadow-xs">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-[#e8e4de] shadow-xs flex flex-col justify-between h-full">
             {submitted ? (
-              <div className="text-center py-12 space-y-4">
+              <div className="text-center py-12 space-y-4 my-auto">
                 <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col justify-between">
                 <h3 className="font-serif text-xl font-normal text-[#1e293b] border-b border-[#e8e4de] pb-3">
                   send us a message
                 </h3>
@@ -158,23 +158,23 @@ export default function ContactPage() {
                   </select>
                 </div>
 
-                <div className="space-y-1.5">
+                <div className="space-y-1.5 flex-1 flex flex-col">
                   <label className="block text-xs font-semibold uppercase tracking-wider text-[#64748b]">
                     message
                   </label>
                   <textarea
-                    rows={4}
+                    rows={8}
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="how can we assist with your stay?"
-                    className="w-full p-3 bg-[#faf8f5] rounded-lg border border-[#e8e4de] text-xs text-[#1e293b] focus:outline-hidden focus:border-[#b87352]"
+                    className="w-full p-3 bg-[#faf8f5] rounded-lg border border-[#e8e4de] text-xs text-[#1e293b] focus:outline-hidden focus:border-[#b87352] flex-1 min-h-[180px] sm:min-h-[220px]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#b87352] hover:bg-[#a25f3f] text-white py-3.5 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-2 shadow-xs"
+                  className="w-full bg-[#b87352] hover:bg-[#a25f3f] text-white py-3.5 rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-2 shadow-xs mt-auto"
                 >
                   <Send className="w-4 h-4" />
                   <span>send inquiry message</span>

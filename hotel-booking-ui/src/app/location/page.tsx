@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { ContentHero } from '@/components/ContentHero';
-import { MOCK_RESORT_INFO } from '@/lib/mock-data';
-import { MapPin, Plane, Car, Compass, CheckCircle2, Phone, Mail, ArrowRight } from 'lucide-react';
+import { MOCK_RESORT_INFO, NEARBY_ATTRACTIONS } from '@/lib/mock-data';
+import { MapPin, Plane, Car, Compass, Phone, Mail, ArrowRight, Footprints, Navigation } from 'lucide-react';
 
 export default function LocationPage() {
   return (
@@ -79,6 +79,47 @@ export default function LocationPage() {
                 complimentary secure parking available on-site for all guests staying at Tantor Resort Habarana.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* What's Nearby Section */}
+        <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#e8e4de] shadow-xs space-y-6">
+          <div className="flex items-center justify-between border-b border-[#e8e4de] pb-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2">
+                <Footprints className="w-5 h-5 text-[#b87352]" />
+                <h2 className="font-serif text-2xl font-normal text-[#1e293b]">
+                  what&apos;s nearby
+                </h2>
+              </div>
+              <p className="text-xs text-[#64748b]">
+                top Sri Lankan cultural landmarks, wildlife national parks & excursions surrounding Tantor Resort.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {NEARBY_ATTRACTIONS.map((place) => (
+              <div
+                key={place.name}
+                className="bg-[#faf8f5] p-4 rounded-xl border border-[#e8e4de] flex flex-col justify-between space-y-2 hover:border-[#b87352]/50 transition-colors"
+              >
+                <div className="space-y-1">
+                  <span className="text-[10px] uppercase tracking-wider text-[#b87352] font-semibold">
+                    {place.category}
+                  </span>
+                  <h3 className="font-medium text-xs text-[#1e293b] leading-snug">
+                    {place.name}
+                  </h3>
+                </div>
+                <div className="flex items-center justify-between text-xs pt-1 border-t border-[#e8e4de]/60">
+                  <span className="text-[#64748b]">distance</span>
+                  <span className="font-semibold text-[#b87352] bg-white px-2 py-0.5 rounded-md border border-[#e8e4de]">
+                    {place.distance}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

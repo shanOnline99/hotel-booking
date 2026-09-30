@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/photos/logo/logo.jpg"
                 alt="Tantor Resort Logo"
-                className="w-10 h-10 rounded-full object-cover border border-[#2c3e35]"
+                className="w-10 h-10 rounded-full object-cover border border-[#2c3e35] footer-logo"
               />
               <span className="font-serif text-2xl tracking-tight text-white font-semibold">
                 Tantor Resort

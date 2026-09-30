@@ -132,6 +132,16 @@ export default function RoomsPage({
             >
               4+ guests
             </button>
+            <button
+              onClick={() => setOccupancyFilter(6)}
+              className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 ${
+                occupancyFilter === 6
+                  ? 'bg-[#1f2d27] text-white'
+                  : 'bg-[#faf8f5] text-[#1e293b] hover:bg-[#f1ede8]'
+              }`}
+            >
+              6+ guests
+            </button>
           </div>
 
           {/* Sort Dropdown */}

@@ -245,34 +245,34 @@ export const MOCK_RESORT_INFO = {
   },
   amenities: [
     {
-      title: 'Private jungle villas',
-      description: 'secluded eco-villas tucked deep within Habarana\'s lush tropical forest.',
-      icon: 'Trees',
-    },
-    {
-      title: 'Natural plunge pools',
-      description: 'refreshing private stone plunge pools immersed in natural jungle surroundings.',
-      icon: 'Droplets',
-    },
-    {
-      title: 'Guided elephant safaris',
-      description: 'customized wildlife safaris to observe wild elephant herds in nearby sanctuaries.',
-      icon: 'Binoculars',
-    },
-    {
-      title: 'Wildlife at your doorstep',
-      description: 'wake up to exotic birds, peacocks, and gentle jungle sounds right outside your balcony.',
-      icon: 'Bird',
-    },
-    {
-      title: 'Jungle infinity pool',
-      description: 'swim right at the edge of the water with serene forest & canopy views.',
+      title: '3 Outdoor Swimming Pools',
+      description: '3 year-round outdoor pools for all ages with sun umbrellas, pool cover, and beach towels.',
       icon: 'Waves',
     },
     {
-      title: 'Sunset cocktail deck',
-      description: 'handcrafted tropical elixirs served under evening jungle skies.',
-      icon: 'Wine',
+      title: 'Ayurvedic Spa & Sauna',
+      description: 'full-body, couples, head & foot massages, steam room, sauna, and yoga classes.',
+      icon: 'Droplets',
+    },
+    {
+      title: 'Cooking Classes & Safaris',
+      description: 'local Sri Lankan cooking classes, cultural tours, and direct elephant jeep safaris.',
+      icon: 'Binoculars',
+    },
+    {
+      title: 'Garden Dining & Bar',
+      description: 'restaurant, bar, in-room breakfast, minibar, wine/champagne, and kid-friendly buffets.',
+      icon: 'Utensils',
+    },
+    {
+      title: '24/7 Concierge & Wi-Fi',
+      description: '24-hour front desk, express check-in/out, tour desk, currency exchange & high-speed Wi-Fi.',
+      icon: 'ShieldCheck',
+    },
+    {
+      title: 'Free Parking & Airport Shuttle',
+      description: 'on-site private parking garage, car hire arrangements, and airport shuttle service.',
+      icon: 'Car',
     },
   ],
   testimonials: [
@@ -306,3 +306,13 @@ export const MOCK_RESORT_INFO = {
     },
   ],
 };
+
+export const NEARBY_ATTRACTIONS = [
+  { name: 'Minneriya National Park', distance: '9 km', category: 'Nature & Wildlife' },
+  { name: 'Minneriya', distance: '10 km', category: 'Local Town & Reservoir' },
+  { name: 'Pidurangala Rock', distance: '13 km', category: 'Hiking & Sunrise Viewpoint' },
+  { name: 'Sigiriya Rock', distance: '13 km', category: 'UNESCO World Heritage' },
+  { name: 'Ritigala Forest Monastery', distance: '15 km', category: 'Ancient Sanctuary' },
+  { name: 'Sigiriya Museum', distance: '16 km', category: 'History & Culture' },
+  { name: 'Sigiriya', distance: '16 km', category: 'Cultural Village' },
+];
