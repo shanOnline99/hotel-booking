@@ -68,3 +68,12 @@ body {
   outline: 2px solid var(--brand-primary);
   outline-offset: 2px;
 }
+
+/* Staggered Animations for Admin UI */
+@layer utilities {
+  .stagger-1 { animation-fill-mode: both; animation-delay: 100ms; }
+  .stagger-2 { animation-fill-mode: both; animation-delay: 200ms; }
+  .stagger-3 { animation-fill-mode: both; animation-delay: 300ms; }
+  .stagger-4 { animation-fill-mode: both; animation-delay: 400ms; }
+  .stagger-5 { animation-fill-mode: both; animation-delay: 500ms; }
+}
