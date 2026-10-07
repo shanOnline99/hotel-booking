@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { MOCK_RESERVATIONS, MOCK_ROOMS } from "@/lib/mock-data";
-import { Search, Filter, MoreVertical, Check, X, Clock } from "lucide-react";
+import { MOCK_RESERVATIONS, MOCK_ROOMS, MOCK_RATE_PLANS } from "@/lib/mock-data";
+import { Search, Filter, MoreVertical, Check, X, Clock, Plus } from "lucide-react";
 import { Reservation } from "@/types";
+import { Button } from "@/components/admin/ui/Button";
+import { Card } from "@/components/admin/ui/Card";
+import { Badge } from "@/components/admin/ui/Badge";
 
 export default function ReservationsPage() {
   const [reservations, setReservations] = useState<Reservation[]>(
@@ -12,6 +15,9 @@ export default function ReservationsPage() {
   const [filterStatus, setFilterStatus] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleStatusChange = (id: string, newStatus: 'confirmed' | 'cancelled' | 'pending') => {
     setReservations(prev => 
@@ -20,12 +26,12 @@ export default function ReservationsPage() {
     setActiveDropdown(null);
   };
 
-  const getStatusColor = (status: string) => {
+  const getStatusType = (status: string) => {
     switch (status) {
-      case 'confirmed': return 'bg-green-100 text-green-700 border-green-200';
-      case 'pending': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-      case 'cancelled': return 'bg-red-100 text-red-700 border-red-200';
-      default: return 'bg-gray-100 text-gray-700 border-gray-200';
+      case 'confirmed': return 'success';
+      case 'pending': return 'warning';
+      case 'cancelled': return 'danger';
+      default: return 'neutral';
     }
   };
 
@@ -44,9 +50,9 @@ export default function ReservationsPage() {
           <h1 className="text-2xl font-bold text-[#1e293b]">Reservations</h1>
           <p className="text-gray-500 mt-1">Manage all your property bookings.</p>
         </div>
-        <button className="px-4 py-2 bg-[#1e293b] text-white font-medium rounded-lg hover:bg-black transition-colors shadow-sm">
-          + Manual Booking
-        </button>
+        <Button onClick={() => setIsModalOpen(true)} icon={<Plus className="w-4 h-4" />}>
+          Manual Booking
+        </Button>
       </div>
 
       {/* Filters & Search bar */}
@@ -77,16 +83,16 @@ export default function ReservationsPage() {
       </div>
 
       {/* Data Table */}
-      <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-visible">
+      <Card noPadding className="overflow-visible">
         <div className="overflow-x-auto min-h-[400px]">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-gray-50 border-b border-gray-100">
+              <tr className="bg-gray-50/50 border-b border-gray-100">
                 <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Guest & Code</th>
                 <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Room & Plan</th>
                 <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Dates</th>
                 <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Total</th>
-                <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider text-center">Status</th>
                 <th className="py-4 px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider text-right">Actions</th>
               </tr>
             </thead>
@@ -103,7 +109,7 @@ export default function ReservationsPage() {
                   const isDropdownOpen = activeDropdown === res.id;
 
                   return (
-                    <tr key={res.id} className="hover:bg-gray-50 transition-colors">
+                    <tr key={res.id} className="hover:bg-gray-50/80 transition-colors">
                       <td className="py-4 px-6">
                         <div className="font-semibold text-[#1e293b]">{res.guestName}</div>
                         <div className="text-xs text-gray-400 mt-1">{res.bookingCode}</div>
@@ -124,10 +130,10 @@ export default function ReservationsPage() {
                         <div className="font-semibold text-[#1e293b]">${res.totalAmount}</div>
                         <div className="text-xs text-gray-400 mt-1 capitalize">{res.source.replace('_', '.')}</div>
                       </td>
-                      <td className="py-4 px-6">
-                        <span className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold border ${getStatusColor(res.status)}`}>
+                      <td className="py-4 px-6 text-center">
+                        <Badge status={getStatusType(res.status) as any} dot>
                           {res.status.charAt(0).toUpperCase() + res.status.slice(1)}
-                        </span>
+                        </Badge>
                       </td>
                       <td className="py-4 px-6 text-right relative">
                         <button 
@@ -175,7 +181,100 @@ export default function ReservationsPage() {
             </tbody>
           </table>
         </div>
-      </div>
+      </Card>
+
+      {/* Manual Booking Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <Card noPadding className="w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl animate-in zoom-in-95 duration-200">
+            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-gray-50 rounded-t-xl shrink-0">
+              <h2 className="text-lg font-bold text-[#1e293b]">Create Manual Booking</h2>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-gray-900 transition-colors bg-white hover:bg-gray-200 p-1 rounded"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="p-6 overflow-y-auto">
+              <form className="space-y-6">
+                {/* Guest Details Section */}
+                <div>
+                  <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2">Guest Details</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Full Name</label>
+                      <input type="text" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow" placeholder="John Doe" />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Phone Number</label>
+                      <input type="tel" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow" placeholder="+1 234 567 890" />
+                    </div>
+                    <div className="col-span-2">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Email Address</label>
+                      <input type="email" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow" placeholder="john@example.com" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Booking Details Section */}
+                <div>
+                  <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2">Booking Details</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="col-span-2">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Room Selection</label>
+                      <select className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow bg-white">
+                        <option value="">Select a room...</option>
+                        {MOCK_ROOMS.map(room => (
+                          <option key={room.id} value={room.id}>{room.name} - ${room.basePrice}/night</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="col-span-2">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Rate Plan</label>
+                      <select className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow bg-white">
+                        <option value="">Select a rate plan...</option>
+                        {MOCK_RATE_PLANS.map(plan => (
+                          <option key={plan.id} value={plan.id} className="capitalize">{plan.name}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Check In</label>
+                      <input type="date" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow text-gray-700" />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Check Out</label>
+                      <input type="date" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow text-gray-700" />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Number of Guests</label>
+                      <input type="number" min="1" className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow" defaultValue="1" />
+                    </div>
+                    <div className="col-span-2 sm:col-span-1">
+                      <label className="block text-sm font-semibold text-gray-700 mb-1.5">Status</label>
+                      <select className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#1e293b] outline-none transition-shadow bg-white">
+                        <option value="confirmed">Confirmed</option>
+                        <option value="pending">Pending</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+            <div className="px-6 py-4 border-t border-gray-100 flex justify-end gap-3 rounded-b-xl bg-gray-50 shrink-0">
+              <Button variant="ghost" onClick={() => setIsModalOpen(false)}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={() => setIsModalOpen(false)}>
+                Confirm Booking
+              </Button>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 }
